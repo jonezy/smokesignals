@@ -6,17 +6,14 @@ Send messages to the screen in a super simple way in your .net web applications.
 
 smokesignals is an easy to use framework that let's you respond to user actions with style and grace, consider the following situation (which i'm sure you've run into 100's of times)
 
-	+ 
 	try {
 	    thing.save();
 	} catch {
 	    // logged or something
 	}
-	+
 
 with smokesignals, you can easily inform your user of what happened, just add a reference to the dll and watch:
 
-	+ 
 	try {
 	    thing.save();
 	    this.SendMessage(MessageType.Success, "The thing was saved");
@@ -24,6 +21,5 @@ with smokesignals, you can easily inform your user of what happened, just add a 
 	    // logged or something
 	    this.SendMessage(MessageType.Warning, "The thing was not saved");
 	}
-	+
 
 and that's it, the look and feel and where the messages go on the page is handled by smokescreen (lie, you have to have a placeholder on the page)
