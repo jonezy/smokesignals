@@ -8,8 +8,8 @@
     <ProjectGuid>{50EB3698-0D5C-4ED6-824F-55A5ABF5E1B3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>smokesignals.core</RootNamespace>
-    <AssemblyName>smokesignals.core</AssemblyName>
+    <RootNamespace>smokesignals</RootNamespace>
+    <AssemblyName>smokesignals</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -44,6 +44,9 @@
   <ItemGroup>
     <Compile Include="smokesignals.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="messages.css" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

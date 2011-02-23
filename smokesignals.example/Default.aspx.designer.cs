@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace smokesignals {
+namespace smokesignals.example {
     
     
     public partial class _Default {
