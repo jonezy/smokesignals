@@ -1,0 +1,3 @@
+h1. smokesignals
+
+send messages to the screen in a super simple way in your .net web applications.
