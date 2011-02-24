@@ -1,0 +1,30 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="smokesignals.example.Site" %>
+
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <meta charset="utf-8" /> 
+  <title>smokesignals</title>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">	
+      
+  <link rel="stylesheet" href="css/site.css" media="screen" />
+  <link href="http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold" rel="stylesheet" type="text/css">
+</head>  
+<body>
+    <form id="form1" runat="server">
+        <asp:PlaceHolder ID="plhMessages" runat="server" />
+        <header class="clearfix">
+            <a href="index.html" id="logo"><h1>smokesignals</h1></a>
+            <nav><ul></ul></nav>
+        </header>
+        <section>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+            </asp:ContentPlaceHolder>
+        </section>
+        <footer></footer>
+    </form>
+</body>
+</html>

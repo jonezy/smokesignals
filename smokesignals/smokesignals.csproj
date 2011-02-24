@@ -35,6 +35,7 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Data" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -42,8 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="smokesignals.control.cs" />
     <Compile Include="smokesignals.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="smokesignals.masterpage.cs" />
+    <Compile Include="smokesignals.page.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="messages.css" />

@@ -2,16 +2,12 @@
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
-public static class smokesignals {
-    /// <summary>
-    /// Writes a message to the page (in the messageHolder if provided) and decorates the message box with some nice css based on 
-    /// what MessageType you want to show.
-    /// </summary>
-    public static void SendMessage(this Page page, PlaceHolder messageHolder, MessageType messageType, string message, bool append) {
-        Instantiate(page);
-       
-        PlaceHolder plhMessages = messageHolder == null ? page.FindControl("plhMessages") as PlaceHolder : messageHolder;
+public static partial class smokesignals_signaller {
+
+    private static void WriteMessage(Page page, PlaceHolder plhMessages, MessageType messageType, string message, bool append) {
         if (plhMessages != null) {
+            Instantiate(page);
+
             // build the div to host the message
             HtmlGenericControl messageElement = new HtmlGenericControl("div");
             messageElement.Attributes.Add("class", GetCcss(messageType));
@@ -22,21 +18,53 @@ public static class smokesignals {
             plhMessages.Controls.AddAt(plhMessages.Controls.Count, messageElement);
         }
     }
-    
-    /// <summary>
-    /// Overloaded SendMessage (doesn't require messageHolder or append)
-    /// </summary>
-    public static void SendMessage(this Page page, MessageType messageType, string message) {
-        SendMessage(page, null, messageType, message, false);
+
+    private static PlaceHolder GetPlaceholder(Page page, PlaceHolder messageHolder) {
+        if (messageHolder != null)
+            return messageHolder;
+
+        return FindContentPlaceholder(page.Form.Controls);
     }
-    
-    /// <summary>
-    /// Overloaded SendMessage (doesn't require messageHolder)
-    /// </summary>
-    public static void SendMessage(this Page page, MessageType messageType, string message, bool append) {
-        SendMessage(page, null, messageType, message, append);
+
+    private static PlaceHolder GetPlaceholder(MasterPage masterPage, PlaceHolder messageHolder) {
+        if (messageHolder != null)
+            return messageHolder;
+
+        foreach (Control control in masterPage.Controls) {
+            if (control is HtmlForm) {
+                foreach (Control formControl in control.Controls) {
+                    if (formControl is PlaceHolder) {
+                        return formControl as PlaceHolder;
+                    }
+                }
+            }
+        }
+
+        return null;
     }
-    
+
+    private static PlaceHolder GetPlaceholder(Control control, PlaceHolder messageHolder) {
+        if (messageHolder != null)
+            return messageHolder;
+
+        foreach (Control childControl in control.Controls) {
+            if (childControl is PlaceHolder) {
+                return childControl as PlaceHolder;
+            }
+        }
+        
+        return null;
+    }
+   
+    private static PlaceHolder FindContentPlaceholder(ControlCollection controls) {
+        foreach (Control control in controls) {
+            if (control is ContentPlaceHolder) {
+                return control.FindControl("plhMessages") as PlaceHolder;
+            }
+        }
+        return null;
+    }
+
     /// <summary>
     /// Determines what css class to use based on the MessageType enum
     /// </summary>
@@ -52,7 +80,6 @@ public static class smokesignals {
                 return "Message_Info";
             default:
                 return "Message_Info";
-                break;
         }
     }
     
@@ -62,7 +89,7 @@ public static class smokesignals {
     private static void Instantiate(Page page) {
         // get the embedded css so we can embed it on the page
         if (!page.ClientScript.IsClientScriptBlockRegistered("messagesCss")) {
-            string css_out = string.Format("<link href='{0}' type='text/css' rel='stylesheet' />", page.ClientScript.GetWebResourceUrl(typeof(smokesignals), "smokesignals.messages.css"));
+            string css_out = string.Format("<link href='{0}' type='text/css' rel='stylesheet' />", page.ClientScript.GetWebResourceUrl(typeof(smokesignals_signaller), "smokesignals.messages.css"));
             page.ClientScript.RegisterClientScriptBlock(page.GetType(), "messagesCss", css_out, false);
         }
     }
