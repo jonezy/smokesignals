@@ -54,7 +54,7 @@ public static partial class smokesignals_signaller {
         foreach (Control control in page.Form.Controls)
             if (control is ContentPlaceHolder) return control.FindControl("plhMessages") as PlaceHolder;
 
-        return null;
+        return page.FindControl("plhMessages") as PlaceHolder;
     }
 
     /// <summary>
@@ -72,7 +72,7 @@ public static partial class smokesignals_signaller {
             }
         }
 
-        return null;
+        return masterPage.FindControl("plhMessages") as PlaceHolder;
     }
 
     /// <summary>
@@ -86,7 +86,7 @@ public static partial class smokesignals_signaller {
             if (childControl is PlaceHolder) return childControl as PlaceHolder;
         }
         
-        return null;
+        return control.FindControl("plhMessages") as PlaceHolder;
     }
 
     /// <summary>
