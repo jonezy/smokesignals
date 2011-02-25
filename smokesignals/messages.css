@@ -1,14 +1,9 @@
-﻿/*
- * messages.css
+﻿/* messages.css
  * a set of classes that let you express messages in your application.
- *
- * encode images as base64 here - http://www.motobit.com/util/base64-decoder-encoder.asp
- */
-
+ * encode images as base64 here - http://www.motobit.com/util/base64-decoder-encoder.asp */
+ 
 /* make sure the p tag is reset */
-div.Message_Error p, div.Message_Success p, div.Message_Warning p, div.Message_Info p {
-  margin:0 !important;padding:0 !important;
-}
+div.Message_Error p, div.Message_Success p, div.Message_Warning p, div.Message_Info p {margin:0 !important;padding:0 !important;}
 
 /* shared between all messages */
 div.Message_Error, div.Message_Success, div.Message_Warning, div.Message_Info {

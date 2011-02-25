@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="smokesignal.messagetype.cs" />
     <Compile Include="smokesignals.control.cs" />
     <Compile Include="smokesignals.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,34 +1,17 @@
-﻿using System.Web.UI;
+﻿using System;
+using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using System;
 
 public static partial class smokesignals_signaller {
-
+    /// <summary>
+    /// Builds the close button and the message container elements and adds/appends (based on append) it to the placeholder.
+    /// </summary>
     private static void WriteMessage(Page page, PlaceHolder plhMessages, MessageType messageType, string message, bool append) {
         if (plhMessages != null) {
             Instantiate(page);
 
-            string uniqueId = Guid.NewGuid().ToString();
-            // build the close image
-            HtmlImage closeImage = new HtmlImage();
-            closeImage.Src = "";
-            closeImage.Border = 0;
-            closeImage.Attributes.Add("title", "close");
-
-            // build the close button
-            HtmlGenericControl closeButton = new HtmlGenericControl("div");
-            closeButton.Attributes.Add("class", "close");
-            
-            closeButton.Attributes.Add("onclick", "javascript:document.getElementById('" + uniqueId + "').style.display='none';");
-            closeButton.InnerText = "x";
-            
-            // build the div to host the message
-            HtmlGenericControl messageElement = new HtmlGenericControl("div");
-            messageElement.Attributes.Add("id", uniqueId);
-            messageElement.Attributes.Add("class", GetCcss(messageType));
-            messageElement.InnerHtml = string.Format("<p>{0}</p>", message);
-            messageElement.Controls.Add(closeButton); // add last or the innerhtml call will replace it.
+            HtmlGenericControl messageElement = BuildMessageControl(messageType, message);
 
             if (!append) plhMessages.Controls.Clear(); // clear controls if append is false
 
@@ -36,23 +19,55 @@ public static partial class smokesignals_signaller {
         }
     }
 
-    private static PlaceHolder GetPlaceholder(Page page, PlaceHolder messageHolder) {
-        if (messageHolder != null)
-            return messageHolder;
+    /// <summary>
+    /// Builds a div with the class being derived from messageType (via GetCss(), adds the close button and message text
+    /// </summary>
+    private static HtmlGenericControl BuildMessageControl(MessageType messageType, string message) {
+        string uniqueId = Guid.NewGuid().ToString(); // make each of these unique
 
-        return FindContentPlaceholder(page.Form.Controls);
+        HtmlImage closeImage = new HtmlImage(); // build the close image
+        closeImage.Src = "";
+        closeImage.Border = 0;
+        closeImage.Attributes.Add("title", "close");
+
+        HtmlGenericControl closeButton = new HtmlGenericControl("div"); // build the close button
+        closeButton.Attributes.Add("class", "close");
+        closeButton.Attributes.Add("onclick", "javascript:document.getElementById('" + uniqueId + "').style.display='none';");
+        closeButton.InnerText = "x";
+
+        HtmlGenericControl messageElement = new HtmlGenericControl("div"); // build the div to host the message
+        messageElement.Attributes.Add("id", uniqueId);
+        messageElement.Attributes.Add("class", GetCcss(messageType));
+        messageElement.InnerHtml = string.Format("<p>{0}</p>", message);
+        messageElement.Controls.Add(closeButton); // add last or the innerhtml call will replace it.
+
+        return messageElement;
     }
 
+    /// <summary>
+    /// If messageHolder is not null it is returned (we are writing to a user specified placeholder
+    /// Otherwise the page is searched for the default plhMessage placeholder
+    /// </summary>
+    private static PlaceHolder GetPlaceholder(Page page, PlaceHolder messageHolder) {
+        if (messageHolder != null) return messageHolder;
+
+        foreach (Control control in page.Form.Controls)
+            if (control is ContentPlaceHolder) return control.FindControl("plhMessages") as PlaceHolder;
+
+        return null;
+    }
+
+    /// <summary>
+    /// If messageHolder is not null it is returned (we are writing to a user specified placeholder
+    /// Otherwise the nasterPage is searched for the default plhMessage placeholder
+    /// </summary>
     private static PlaceHolder GetPlaceholder(MasterPage masterPage, PlaceHolder messageHolder) {
-        if (messageHolder != null)
-            return messageHolder;
+        if (messageHolder != null) return messageHolder;
 
         foreach (Control control in masterPage.Controls) {
             if (control is HtmlForm) {
                 foreach (Control formControl in control.Controls) {
-                    if (formControl is PlaceHolder) {
-                        return formControl as PlaceHolder;
-                    }
+                    if (formControl is PlaceHolder) return formControl as PlaceHolder;
                 }
             }
         }
@@ -60,25 +75,17 @@ public static partial class smokesignals_signaller {
         return null;
     }
 
+    /// <summary>
+    /// If messageHolder is not null it is returned (we are writing to a user specified placeholder
+    /// Otherwise the coontrol is searched for the default plhMessage placeholder
+    /// </summary>
     private static PlaceHolder GetPlaceholder(Control control, PlaceHolder messageHolder) {
-        if (messageHolder != null)
-            return messageHolder;
+        if (messageHolder != null) return messageHolder;
 
         foreach (Control childControl in control.Controls) {
-            if (childControl is PlaceHolder) {
-                return childControl as PlaceHolder;
-            }
+            if (childControl is PlaceHolder) return childControl as PlaceHolder;
         }
         
-        return null;
-    }
-   
-    private static PlaceHolder FindContentPlaceholder(ControlCollection controls) {
-        foreach (Control control in controls) {
-            if (control is ContentPlaceHolder) {
-                return control.FindControl("plhMessages") as PlaceHolder;
-            }
-        }
         return null;
     }
 
@@ -111,8 +118,3 @@ public static partial class smokesignals_signaller {
         }
     }
 }
-
-/// <summary>
-/// enum class to keep track of and identify message types.
-/// </summary>
-public enum MessageType { Error,Warning,Success,Info }
