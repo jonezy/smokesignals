@@ -1,6 +1,7 @@
 ﻿using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using System;
 
 public static partial class smokesignals_signaller {
 
@@ -8,10 +9,20 @@ public static partial class smokesignals_signaller {
         if (plhMessages != null) {
             Instantiate(page);
 
+            string uniqueId = Guid.NewGuid().ToString();
+            // build the close button
+            HtmlGenericControl closeButton = new HtmlGenericControl("div");
+            closeButton.Attributes.Add("class", "close");
+            closeButton.InnerText = "x";
+            closeButton.Attributes.Add("onclick", "javascript:document.getElementById('" + uniqueId + "').style.display='none';");
+            //closeButton.HRef = "javascript:document.getElementById('" + uniqueId + "').style.display='none';";
+            
             // build the div to host the message
             HtmlGenericControl messageElement = new HtmlGenericControl("div");
+            messageElement.Attributes.Add("id", uniqueId);
             messageElement.Attributes.Add("class", GetCcss(messageType));
             messageElement.InnerHtml = string.Format("<p>{0}</p>", message);
+            messageElement.Controls.Add(closeButton); // add last or the innerhtml call will replace it.
 
             if (!append) plhMessages.Controls.Clear(); // clear controls if append is false
 
