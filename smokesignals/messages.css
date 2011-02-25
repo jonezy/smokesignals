@@ -22,7 +22,8 @@ div.Message_Error, div.Message_Success, div.Message_Warning, div.Message_Info {
 /* close button */
 div.Message_Error div.close, div.Message_Success div.close, div.Message_Warning div.close, div.Message_Info div.close  {
 	float:right;position:absolute;top:0px;right:0px;
-	cursor:pointer;font-weight:bold;padding:2px 5px;
+	padding:0px 2px 0px 0px;cursor:pointer;border:0px;
+	font-weight:bold;font-size:11px;
 }
 
 /* icons are embedded as base64, won't work in some older browsers, don't know don't care. */

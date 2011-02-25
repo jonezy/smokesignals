@@ -10,12 +10,18 @@ public static partial class smokesignals_signaller {
             Instantiate(page);
 
             string uniqueId = Guid.NewGuid().ToString();
+            // build the close image
+            HtmlImage closeImage = new HtmlImage();
+            closeImage.Src = "";
+            closeImage.Border = 0;
+            closeImage.Attributes.Add("title", "close");
+
             // build the close button
             HtmlGenericControl closeButton = new HtmlGenericControl("div");
             closeButton.Attributes.Add("class", "close");
-            closeButton.InnerText = "x";
+            
             closeButton.Attributes.Add("onclick", "javascript:document.getElementById('" + uniqueId + "').style.display='none';");
-            //closeButton.HRef = "javascript:document.getElementById('" + uniqueId + "').style.display='none';";
+            closeButton.InnerText = "x";
             
             // build the div to host the message
             HtmlGenericControl messageElement = new HtmlGenericControl("div");
