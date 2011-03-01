@@ -67,13 +67,6 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
-    <Compile Include="Test.aspx.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Test.aspx.designer.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
-    </Compile>
     <Compile Include="UserMessage.ascx.cs">
       <DependentUpon>UserMessage.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -91,7 +84,6 @@
   <ItemGroup>
     <Content Include="Default.aspx" />
     <Content Include="Site.Master" />
-    <Content Include="Test.aspx" />
     <Content Include="UserMessage.ascx" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
