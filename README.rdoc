@@ -24,7 +24,7 @@ with smokesignals, you can easily inform your user of what happened, just add a 
 
 == Setup
 
-- Add <asp:PlaceHolder id="plhMessages" runat="server" /> to your page (or master page or user control)
++ Add <asp:PlaceHolder id="plhMessages" runat="server" /> to your page (or master page or user control)
 
 - Add  <add verb="*" path="*.aspx" validate="false" type="smokesignalshandler,smokesignals"/> to your <httpHandlers> section of your apps web.config.
 
