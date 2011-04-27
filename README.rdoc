@@ -30,6 +30,6 @@ with smokesignals, you can easily inform your user of what happened, just add a 
 
 That's it, then just call the SendMessage() method in your page or user control
 
-=== Note 
+== Note 
 
 MVC is a bit out of date, still need to refine it and document :\
