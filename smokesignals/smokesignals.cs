@@ -1,8 +1,8 @@
 ﻿using System;
+using System.Web.Mvc;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using System.Web.Mvc;
 
 public static partial class smokesignals_signaller {
     /// <summary>
@@ -10,8 +10,6 @@ public static partial class smokesignals_signaller {
     /// </summary>
     private static void WriteMessage(Page page, PlaceHolder plhMessages, MessageType messageType, string message, bool append) {
         if (plhMessages != null) {
-            Instantiate(page);
-
             HtmlGenericControl messageElement = BuildMessageControl(messageType, message);
 
             if (!append) plhMessages.Controls.Clear(); // clear controls if append is false
@@ -105,17 +103,6 @@ public static partial class smokesignals_signaller {
                 return "Message_Info";
             default:
                 return "Message_Info";
-        }
-    }
-    
-    /// <summary>
-    /// Wriites any embedded resources to the page (css in this case)
-    /// </summary>
-    private static void Instantiate(Page page) {
-        // get the embedded css so we can embed it on the page
-        if (!page.ClientScript.IsClientScriptBlockRegistered("messagesCss")) {
-            string css_out = string.Format("<link href='{0}' type='text/css' rel='stylesheet' />", page.ClientScript.GetWebResourceUrl(typeof(smokesignals_signaller), "smokesignals.messages.css"));
-            page.ClientScript.RegisterClientScriptBlock(page.GetType(), "messagesCss", css_out, false);
         }
     }
 
