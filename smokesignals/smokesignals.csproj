@@ -55,6 +55,7 @@
     <EmbeddedResource Include="messages.css" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="smokesignals.handler.cs" />
     <Compile Include="smokesignals.mvc.controller.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

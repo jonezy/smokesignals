@@ -29,3 +29,8 @@ div.Message_Info    { background-color:#BDE5F8; color:#00529B; background-image:
 
 /* append this class to any of the above (Message_Info Message_Flash) and the message will stick to the top of the viewport (use jquery to close) */
 div.Message_Flash {position:fixed;top:0;left:0;width:100%;margin:0px;border-right:none;border-left:none;border-top:none;-moz-border-radius:0px; -webkit-border-radius:0px; -khtml-border-radius:0px;border-radius:0px;}
+
+/* handle some comment tags that get included in validation summaries */
+.Message_Error ul {margin:10px 0px 0px 0px;}
+.Message_Error ul li {margin:0px 0px 0px 16px;list-style:disc;}
+.Message_Error b {font-weight:bold !important;font-size:110%;}
