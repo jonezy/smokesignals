@@ -1,8 +1,9 @@
 ﻿using System.Web;
 using System.Web.Compilation;
 using System.Web.UI;
+using System.Web.SessionState;
 
-public class smokesignalshandler : IHttpHandler {
+public class smokesignalshandler : IHttpHandler, IRequiresSessionState {
 
     public bool IsReusable {
         get { return true; }
