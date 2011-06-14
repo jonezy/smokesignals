@@ -20,7 +20,7 @@ public partial class smokesignals_signaller {
     }
 
     public static string Notify(this HtmlHelper helper) {
-        Instantiate(helper.ViewContext.View as ViewMasterPage);
+        Instantiate(helper.ViewContext.View as WebFormView);
 
         var message = "";
         var className = "";

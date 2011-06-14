@@ -6,7 +6,8 @@ public static partial class smokesignals_signaller {
     /// Writes a message to the page (in the messageHolder if provided) and decorates the message box with some nice css based on what MessageType you want to show.
     /// </summary>
     public static void SendMessage(this Page page, PlaceHolder messageHolder, MessageType messageType, string message, bool append) {
-        WriteMessage(page, GetPlaceholder(page, messageHolder), messageType, message, append);
+        PlaceHolder messagePlaceHolder = GetPlaceholder(page, messageHolder);
+        WriteMessage(page, messagePlaceHolder, messageType, message, append);
     }
 
     /// <summary>Overloaded SendMessage (doesn't require messageHolder or append)</summary>

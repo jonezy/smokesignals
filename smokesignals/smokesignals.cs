@@ -109,11 +109,11 @@ public static partial class smokesignals_signaller {
     /// <summary>
     /// Wriites any embedded resources to the page (css in this case)
     /// </summary>
-    private static void Instantiate(ViewMasterPage page) {
+    private static void Instantiate(WebFormView view) {
         // get the embedded css so we can embed it on the page
-        if (!page.Page.ClientScript.IsClientScriptBlockRegistered("messagesCss")) {
-            string css_out = string.Format("<link href='{0}' type='text/css' rel='stylesheet' />", page.Page.ClientScript.GetWebResourceUrl(typeof(smokesignals_signaller), "smokesignals.messages.css"));
-            page.Page.ClientScript.RegisterClientScriptBlock(page.GetType(), "messagesCss", css_out, false);
-        }
+        //if (!view.Page.ClientScript.IsClientScriptBlockRegistered("messagesCss")) {
+        //    string css_out = string.Format("<link href='{0}' type='text/css' rel='stylesheet' />", view.Page.ClientScript.GetWebResourceUrl(typeof(smokesignals_signaller), "smokesignals.messages.css"));
+        //    view.Page.ClientScript.RegisterClientScriptBlock(view.GetType(), "messagesCss", css_out, false);
+        //}
     }
 }
