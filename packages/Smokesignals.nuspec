@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Smokesignals</id>
+    <version>1.2</version>
+    <authors>jonezy</authors>
+    <owners>jonezy</owners>
+    <projectUrl>http://github.com/jonezy/smokesignals</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Friendly messages</description>
+  </metadata>
+</package>
