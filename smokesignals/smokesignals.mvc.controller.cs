@@ -42,7 +42,7 @@ public partial class smokesignals_signaller {
         var sb = new StringBuilder();
         if (!String.IsNullOrEmpty(message)) {
             sb.AppendLine("<script>");
-            sb.AppendLine("$(document).ready(function() {");
+            sb.AppendLine("head.ready(function() {");
             sb.AppendFormat("$('#flash').html('{0}');", message);
             sb.AppendFormat("$('#flash').toggleClass('{0}');", className);
             sb.AppendLine("$('#flash').slideDown('med');");
