@@ -10,7 +10,7 @@ namespace smokesignals.mvc.example.Controllers {
         public ActionResult Index() {
             ViewData["Message"] = "Welcome to ASP.NET MVC!";
             
-            this.StoreInfo("This wa5 flashed from the HomeController/Home Action");
+            this.StoreInfo("This was flashed from the HomeController/Home Action");
 
             return View();
         }

@@ -50,6 +50,7 @@ public partial class smokesignals_signaller {
             sb.AppendLine("});");
             sb.AppendLine("</script>");
         }
+
         return sb.ToString();
     }
 }
