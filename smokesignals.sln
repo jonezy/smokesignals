@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "smokesignals.example", "smokesignals.example\smokesignals.example.csproj", "{7CEC90EF-1950-43C8-9641-4F3BC799B858}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "smokesignals", "smokesignals\smokesignals.csproj", "{50EB3698-0D5C-4ED6-824F-55A5ABF5E1B3}"
