@@ -8,8 +8,8 @@
     <ProjectGuid>{50EB3698-0D5C-4ED6-824F-55A5ABF5E1B3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>smokesignals</RootNamespace>
-    <AssemblyName>smokesignals</AssemblyName>
+    <RootNamespace>Smokesignals</RootNamespace>
+    <AssemblyName>Smokesignals</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
@@ -65,19 +65,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="smokesignal.messagetype.cs" />
-    <Compile Include="smokesignals.control.cs" />
-    <Compile Include="smokesignals.cs" />
+    <Compile Include="SmokesignalsMessageType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="smokesignals.masterpage.cs" />
-    <Compile Include="smokesignals.page.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="messages.css" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="smokesignals.handler.cs" />
-    <Compile Include="smokesignals.mvc.controller.cs" />
+    <Compile Include="SmokesignalsMvcController.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

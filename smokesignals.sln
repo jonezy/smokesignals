@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "smokesignals", "smokesignals\smokesignals.csproj", "{50EB3698-0D5C-4ED6-824F-55A5ABF5E1B3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smokesignals", "smokesignals\Smokesignals.csproj", "{50EB3698-0D5C-4ED6-824F-55A5ABF5E1B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "smokesignals.mvc.example", "smokesignals.mvc.example\smokesignals.mvc.example.csproj", "{763650D9-F4F1-4C26-A88B-88BB111A8BAD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smokesignals.MvcExample", "Smokesignals.MvcExample\Smokesignals.MvcExample.csproj", "{C5C7ED09-77E7-4689-86EA-7A2F4082FEC5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,10 @@ Global
 		{50EB3698-0D5C-4ED6-824F-55A5ABF5E1B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50EB3698-0D5C-4ED6-824F-55A5ABF5E1B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50EB3698-0D5C-4ED6-824F-55A5ABF5E1B3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{763650D9-F4F1-4C26-A88B-88BB111A8BAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{763650D9-F4F1-4C26-A88B-88BB111A8BAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{763650D9-F4F1-4C26-A88B-88BB111A8BAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{763650D9-F4F1-4C26-A88B-88BB111A8BAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5C7ED09-77E7-4689-86EA-7A2F4082FEC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5C7ED09-77E7-4689-86EA-7A2F4082FEC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5C7ED09-77E7-4689-86EA-7A2F4082FEC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5C7ED09-77E7-4689-86EA-7A2F4082FEC5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
