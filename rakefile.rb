@@ -18,15 +18,19 @@ task :default => :pack
 
 desc "packs the project based on the existing conventions"
 task :pack do |t| 
-puts $NUGET_OUTPUT_DIR
   Rake::Task["clean"].invoke
   Rake::Task["assemblyinfo"].invoke
   Rake::Task["build"].invoke("Release")
   Rake::Task["spec"].invoke
 
   Dir.mkdir($NUGET_OUTPUT_DIR) unless File.directory?($NUGET_OUTPUT_DIR)
-
+  
   FileUtils.copy("#{$PROJECT_NAME}/bin/release/#{$PROJECT_NAME}.dll", "#{$NUGET_OUTPUT_DIR}/lib")
+  FileUtils.copy("Smokesignals.MvcExample/Public/css/messages.css", "#{$NUGET_OUTPUT_DIR}/content/Public/css")
+
+  Dir.glob('Smokesignals.MvcExample/Public/js/*.js').each do |f|
+      FileUtils.copy(f, "#{$NUGET_OUTPUT_DIR}/content/Public/js")
+  end
 
   system("nuget pack #{$NUGET_OUTPUT_DIR}/#{$PROJECT_NAME}.nuspec -Version #{$VERSION_NUMBER} -OutputDirectory #{$NUGET_OUTPUT_DIR}")
 end
@@ -52,9 +56,9 @@ assemblyinfo :assemblyinfo  do |asm,args|
   puts "Writing AssemblyInfo for #{args.project}"
 
   asm.version = $VERSION_NUMBER 
-  asm.company_name = "Richmond Day"
-  asm.product_name = "Richmond Day Helpers"
-  asm.title = "Richmond Day Helpers"
-  asm.description = "Richmond Day Helpers"
+  asm.company_name = $PROJECT_NAME
+  asm.product_name = $PROJECT_NAME
+  asm.title = $PROJECT_NAME
+  asm.description = $PROJECT_NAME 
   asm.output_file = "#{SELF_PATH}/#{$PROJECT_NAME}/Properties/AssemblyInfo.cs"
 end
