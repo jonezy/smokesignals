@@ -68,9 +68,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="messages.css" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="SmokesignalsMvcController.cs" />
   </ItemGroup>
   <ItemGroup>
