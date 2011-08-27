@@ -12,7 +12,7 @@ CLEAN.include("*.cache", "*.xml", "*.suo", "**/obj", "**/bin", "*.nupkg")
 # CONFIGURE THIS STUFF ONLY
 ##########################################
 $PROJECT_NAME = "Smokesignals" # this should reflect the name of your project
-$VERSION_NUMBER = "1.4.1" # update this before running rake nuget:pack
+$VERSION_NUMBER = "1.5" # update this before running rake nuget:pack
 $NUGET_OUTPUT_DIR = File.join(File.dirname(__FILE__), "/nuget") 
 task :default => :pack
 
