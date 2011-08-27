@@ -17,6 +17,7 @@ div.Message_Error, div.Message_Success, div.Message_Warning, div.Message_Info,
   -moz-border-radius:5px; -webkit-border-radius:5px; -khtml-border-radius:5px;border-radius:5px;
   border-right:none;border-left:none;
   position:relative;
+  z-index:9999;
 }
 
 div.Message_Error span, div.Message_Success span, div.Message_Warning span, div.Message_Info span,

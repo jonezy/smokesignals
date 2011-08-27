@@ -11,7 +11,10 @@ namespace Smokesignals.MvcExample.Controllers {
         public ActionResult About() {
             this.Receive(MessageType.Success, "Success yo!");
             this.Receive(MessageType.Error, "Error yo!");
+            this.Receive(MessageType.Info, "Info yo!");
+            this.Receive(MessageType.Warning, "Warning yo!");
             return View();
         }
     }
 }
+

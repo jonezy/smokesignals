@@ -39,7 +39,6 @@ public static class SmokesignalsMvcController {
     
     static void StoreError(Controller controller, MessageType messageType, string message) {
         List<SmokesignalError> errors = controller.TempData["SMOKESIGNALERRORS"] as List<SmokesignalError> ?? new List<SmokesignalError>();
-
         errors.Add(new SmokesignalError() { ErrorType = messageType, Message = message });
         
         controller.TempData["SMOKESIGNALERRORS"] = errors;
