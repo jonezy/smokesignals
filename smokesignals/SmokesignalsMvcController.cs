@@ -6,7 +6,7 @@ public static class SmokesignalsMvcController {
     public static void Receive(this Controller controller, MessageType messageType, string message) {
         StoreError(controller, messageType, message);
     }
-    
+
     public static MvcHtmlString Send(this HtmlHelper helper, int heightOffset) {
         StringBuilder sb = new StringBuilder();
         List<SmokesignalError> errors = helper.ViewContext.TempData["SMOKESIGNALERRORS"] as List<SmokesignalError> ?? null;

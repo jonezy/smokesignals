@@ -6,7 +6,7 @@ PATH_TO_MSBUILD = "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\msbuild.ex
 
 # list of files and directories to clean, change to suit your liking
 CLEAN.exclude("**/core","**/_sql")
-CLEAN.include("*.cache", "*.xml", "*.suo", "**/obj", "**/bin", "*.nuspec", "*.nupkg")
+CLEAN.include("*.cache", "*.xml", "*.suo", "**/obj", "**/bin", "*.nupkg")
 
 ##########################################
 # CONFIGURE THIS STUFF ONLY
@@ -21,7 +21,6 @@ task :pack do |t|
   Rake::Task["clean"].invoke
   Rake::Task["assemblyinfo"].invoke
   Rake::Task["build"].invoke("Release")
-  Rake::Task["spec"].invoke
 
   Dir.mkdir($NUGET_OUTPUT_DIR) unless File.directory?($NUGET_OUTPUT_DIR)
   
@@ -32,12 +31,7 @@ task :pack do |t|
       FileUtils.copy(f, "#{$NUGET_OUTPUT_DIR}/content/Public/js")
   end
 
-  system("nuget pack #{$NUGET_OUTPUT_DIR}/#{$PROJECT_NAME}.nuspec -Version #{$VERSION_NUMBER} -OutputDirectory #{$NUGET_OUTPUT_DIR}")
-end
-
-desc "Generates a nuget spec file for the current project"
-task :spec do |t|
-  system("nuget spec -f #{$PROJECT_NAME}")
+  system("nuget pack #{$NUGET_OUTPUT_DIR}/#{$PROJECT_NAME}.nuspec -Version #{$VERSION_NUMBER}")
 end
 
 # builds all the .sln files in the directory
