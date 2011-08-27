@@ -244,10 +244,11 @@ table th {
 nav, 
 #menucontainer {
     margin-top: 40px;
+    float:right;
 }
 
 div#title {
-    display: block;
+    display: inline;
     float: left;
     text-align: left;
 }

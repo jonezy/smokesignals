@@ -17,15 +17,12 @@
             <div id="title">
                 <h1>My MVC Application</h1>
             </div>
-            <div id="logindisplay">
-                @Html.Partial("_LogOnPartial")
-            </div>
             <nav>
                 <ul id="menu">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
                 </ul>
             </nav>
+            <br style="clear:both;" />
         </header>
         <section id="main">
             @RenderBody()
